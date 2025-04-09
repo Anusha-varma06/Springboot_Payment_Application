@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.paymentapplication.demo.entities.UserDetailsEntity;
 @Repository
 public interface UserDetailsRepository extends JpaRepository<UserDetailsEntity,Integer> {
-	
+	UserDetailsEntity findByUserNameAndPassword(String name,String password);
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.paymentapplication.demo.entities.UserDetailsEntity;
 import com.paymentapplication.demo.models.UserDetailsModel;
+import com.paymentapplication.demo.models.UserLoginModel;
 import com.paymentapplication.demo.services.UserServices;
 @Controller
 public class UserRegistrationController {
@@ -19,17 +20,20 @@ public class UserRegistrationController {
 		return "registration";
 	}
 	@PostMapping("/register")
-	public String handleRegistration(@ModelAttribute  UserDetailsModel userregistration) {
+	public String handleRegistration(@ModelAttribute  UserDetailsModel userregistration,Model model) {
 		System.out.println("user"+" "+userregistration.getUsername()+"registered successfully");
 		UserDetailsEntity user=new UserDetailsEntity();
-		user.setUser_name(userregistration.getUsername());
+		user.setUserName(userregistration.getUsername());
 		user.setPassword(userregistration.getPassword());
-		user.setFirst_name(userregistration.getFirstname());
-		user.setLast_name(userregistration.getLastname());
+		user.setFirstName(userregistration.getFirstname());
+		user.setLastName(userregistration.getLastname());
 		user.setEmail(userregistration.getEmail());
-		user.setPhone_number(userregistration.getMobile());
+		user.setPhoneNumber(userregistration.getMobile());
 		user.setAddress(userregistration.getAddress());
-		userReg.registerUser(user);
+		boolean flag=userReg.registerUser(user);
+		if(flag) {
+			model.addAttribute("userLogin",new UserLoginModel());
+		}
 		return "login";
 	}
 	
