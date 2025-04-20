@@ -31,6 +31,14 @@ public class UserDetailsEntity {
 	private String address;
 	@OneToMany(mappedBy="userDetails")
 	private List<BankAccountsDetailsEntity> banks;
+	@OneToMany(mappedBy="user")
+	private List<TransactionDetailsEntity> transactions;
+	public List<TransactionDetailsEntity> getTransactions() {
+		return transactions;
+	}
+	public void setTransactions(List<TransactionDetailsEntity> transactions) {
+		this.transactions = transactions;
+	}
 	public int getUserId() {
 		return userId;
 	}

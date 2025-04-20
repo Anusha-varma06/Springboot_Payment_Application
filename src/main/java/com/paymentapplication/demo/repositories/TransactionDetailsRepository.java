@@ -1,5 +1,11 @@
 package com.paymentapplication.demo.repositories;
 
-public interface TransactionDetailsRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import com.paymentapplication.demo.entities.TransactionDetailsEntity;
+
+@Repository
+public interface TransactionDetailsRepository extends JpaRepository<TransactionDetailsEntity,Integer>{
+	
 }

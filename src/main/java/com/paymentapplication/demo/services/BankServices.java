@@ -28,4 +28,10 @@ public class BankServices {
 		user.setBanks(banks);
 		session.setAttribute("userProfile",user);
 	}
+	public void sourceDebit(int sourceUserId,long amount,String bankName) {
+		bankRepo.updateSourceBalanceByUserId(amount, sourceUserId, bankName);
+	}
+	public void destinationCredit(int destinationUserId,long amount,String bankName) {
+		bankRepo.updateDestBalanceByUserId(amount, destinationUserId, bankName);
+	}
 }

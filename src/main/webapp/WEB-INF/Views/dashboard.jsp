@@ -137,7 +137,7 @@ body {
         <p><strong>Primary Bank Account No:</strong> </p>
         <p><strong>Account Balance:</strong> </p>
         <p><strong>Wallet Balance:</strong>  <a href="/addBankForm" style="color:red; text-decoration:none;">[+]</a></p>
-        <button class="send-money-btn">Send money</button>
+        <a href="/send"><button class="send-money-btn">Send money</button></a>
     </div>
 
    
